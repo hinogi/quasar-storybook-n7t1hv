@@ -1,5 +1,6 @@
 import { type StorybookConfig } from '@storybook/vue3-vite';
 import VuePlugin from '@vitejs/plugin-vue';
+import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
 import { mergeConfig } from 'vite';
 import * as hq from 'alias-hq';
 
@@ -18,7 +19,14 @@ const config: StorybookConfig = {
   },
   viteFinal: (config, { configType }) =>
     mergeConfig(config, {
-      plugins: [VuePlugin()],
+      plugins: [
+        VuePlugin({
+          template: { transformAssetUrls },
+        }),
+        quasar({
+          sassVariables: 'src/css/quasar.variables.sass',
+        }),
+      ],
       server: {
         fs: {
           strict: false,

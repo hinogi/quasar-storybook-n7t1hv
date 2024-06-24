@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@quasar/app-webpack": "^3.13.2",
+    "@quasar/vite-plugin": "^1.7.0",
     "@storybook/addon-actions": "^8.1.10",
     "@storybook/addon-essentials": "^8.1.10",
     "@storybook/addon-links": "^8.1.10",
