@@ -1,6 +1,7 @@
 import { type StorybookConfig } from '@storybook/vue3-vite';
 import VuePlugin from '@vitejs/plugin-vue';
 import { mergeConfig } from 'vite';
+import * as hq from 'alias-hq';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -22,6 +23,9 @@ const config: StorybookConfig = {
         fs: {
           strict: false,
         },
+      },
+      resolve: {
+        alias: hq.get('rollup'),
       },
     }),
 };
