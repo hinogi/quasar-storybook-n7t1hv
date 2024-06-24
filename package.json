@@ -10,6 +10,8 @@
     "format": "prettier --write \"**/*.{js,ts,vue,,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
+    "storybook": "storybook dev",
+    "storybook:build": "storybook build",
     "build": "quasar build"
   },
   "dependencies": {
@@ -24,13 +26,20 @@
   },
   "devDependencies": {
     "@quasar/app-webpack": "^3.13.2",
+    "@storybook/addon-actions": "^8.1.10",
+    "@storybook/addon-essentials": "^8.1.10",
+    "@storybook/addon-links": "^8.1.10",
+    "@storybook/builder-vite": "^8.1.10",
+    "@storybook/vue3-vite": "^8.1.10",
     "@types/node": "^20.14.8",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
+    "@vitejs/plugin-vue": "^5.0.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.26.0",
-    "prettier": "^3.3.2"
+    "prettier": "^3.3.2",
+    "storybook": "^8.1.10"
   },
   "browserslist": [
     "last 10 Chrome versions",
