@@ -1,23 +1,27 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import EssentialLink from './EssentialLink.vue';
 
-export default {
+const meta: Meta<typeof EssentialLink> = {
   title: 'Example/EssentialLink',
   component: EssentialLink,
 };
 
-const Template = (args: unknown) => ({
-  components: { EssentialLink },
-  setup() {
-    return { args };
-  },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<EssentialLink v-bind="args" />',
+export default meta;
+
+type Story = StoryObj<typeof EssentialLink>;
+
+export const Primary: Story = {
+  render: (args) => ({
+    components: { EssentialLink },
+    setup() {
+      return { args };
+    },
+    template: '<EssentialLink v-bind="args" />',
+  }),
   args: {
     title: 'EssentialLink',
     caption: 'Caption',
     link: 'http://',
     icon: '',
   },
-});
-
-export const Primary = Template.bind({});
+};

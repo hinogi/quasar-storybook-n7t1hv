@@ -1,23 +1,32 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
 import ExampleComponent from './ExampleComponent.vue';
 
-export default {
+const meta: Meta<typeof ExampleComponent> = {
   title: 'Example/ExampleComponent',
   component: ExampleComponent,
 };
 
-const Template = (args: unknown) => ({
-  components: { ExampleComponent },
-  setup() {
-    return { args };
-  },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<ExampleComponent  v-bind="args" />',
+export default meta;
+
+type Story = StoryObj<typeof ExampleComponent>;
+
+export const Primary: Story = {
+  render: (args) => ({
+    components: { ExampleComponent },
+    setup() {
+      return { args };
+    },
+    template: '<ExampleComponent v-bind="args" />',
+  }),
   args: {
     title: 'ExampleComponent',
-    todos: [],
-    meta: {},
-    active: true,
-  },
-});
 
-export const Primary = Template.bind({});
+    meta: {
+      totalCount: 4,
+    },
+    todos: [
+      { id: 1, content: 'Hallo' },
+      { id: 2, content: 'Hoi' },
+    ],
+  },
+};
