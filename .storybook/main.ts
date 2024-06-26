@@ -5,18 +5,21 @@ import { mergeConfig } from 'vite';
 import * as hq from 'alias-hq';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+
   framework: {
     name: '@storybook/vue3-vite',
     options: {
       docgen: 'vue-component-meta',
     },
   },
+
   core: {
     disableTelemetry: true,
     builder: '@storybook/builder-vite',
   },
+
   viteFinal: (config, { configType }) =>
     mergeConfig(config, {
       plugins: [
@@ -36,6 +39,8 @@ const config: StorybookConfig = {
         alias: hq.get('rollup'),
       },
     }),
+
+  docs: {}
 };
 
 export default config;

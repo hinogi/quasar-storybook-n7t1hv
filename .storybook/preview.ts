@@ -12,3 +12,4 @@ import 'src/css/app.sass';
 setup((app) => {
   app.use(Quasar, {});
 });
+export const tags = ['autodocs'];
